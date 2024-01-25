@@ -19,4 +19,22 @@ function SetDeckCard(card, color) {
 }
 
 SetDeckCard(cards["game"], GetRandomColor());
-//SetDeckCard(GetRandomCardOfType("special"), GetRandomColor());
+//SetDeckCard(GetRandomCardOfType("special"), GetRandomColor()); 
+
+function CreateGame() {
+    let stack = [];
+
+    for (var i = 0; i < Object.keys(game).length; i++) {
+        for (n = 0; n <= game[i].amount; n++) {
+            stack.push(game[i].name);
+            //game[game.length].color = game[i].color;
+            //game[game.length].location = "deck";
+        }
+    }
+
+    return stack;
+}
+
+var stack = CreateGame();
+
+console.log(stack);

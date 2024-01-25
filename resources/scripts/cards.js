@@ -76,8 +76,8 @@ var cards = {
         "type": ["normal"]
     },
 
-    "rotate": {
-        "name": "Rotate",
+    "reverse": {
+        "name": "Reverse",
         "symbol": "🗘",
         "value": 10,
         "type": ["modify"]
