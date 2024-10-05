@@ -1,3 +1,5 @@
+//Hide UI elements
+document.getElementById("game-menu").setAttribute("style", "visibility: hidden;");
 
 function GetRandomCardOfType(type) {
     let card;
@@ -19,22 +21,41 @@ function SetDeckCard(card, color) {
 }
 
 SetDeckCard(cards["game"], GetRandomColor());
-//SetDeckCard(GetRandomCardOfType("special"), GetRandomColor()); 
 
 function CreateGame() {
-    let stack = [];
 
-    for (var i = 0; i < Object.keys(game).length; i++) {
-        for (n = 0; n <= game[i].amount; n++) {
-            stack.push(game[i].name);
-            //game[game.length].color = game[i].color;
-            //game[game.length].location = "deck";
+    let deck = [];
+
+    for (i = 0; i < Object.keys(game).length; i++) {
+        for(n = 0; n < game[i]["amount"]; n++) {
+            card = {"name": game[i]["name"], "color": game[i]["color"], "holder": "deck"};
+            deck.push(card);
         }
     }
-
-    return stack;
+    console.log(deck);
+    return deck;
 }
 
-var stack = CreateGame();
+function StartGame() {
+    //UI changes
+    document.getElementById("game-startmenu").setAttribute("style", "visibility: hidden;");
+    document.getElementById("game-menu").setAttribute("style", "visibility: visible;");
 
-console.log(stack);
+    //Get Data for game
+    var deck = CreateGame();
+    var opponentAmount = document.getElementById("opponentAmount").value;
+    var cpuDelay = document.getElementById("turnDelay").value;
+    console.log("Creating game with "+opponentAmount+" opponents");
+
+    //Make player deck
+    for(i = 0; i < 7; i++) {
+        //uuh continue here G.
+    }
+}
+
+function StopGame() {
+    //UI changes
+    document.getElementById("game-startmenu").setAttribute("style", "visibility: visible;");
+    document.getElementById("game-menu").setAttribute("style", "visibility: hidden;");
+
+}
