@@ -10,7 +10,14 @@
 <body>
     <div id="game">
         <div id="game-top">
-            <button type="button" onclick="DealCards()">Deal Cards</button>
+            <div id="game-startmenu">
+                <label>Opponents </label><input type="number" name="opponentAmount" id="opponentAmount" value="3" min="1" max="9">
+                <label>CPU turn delay </label><input type="number" name="turnDelay" id="turnDelay" value="4" min="0" max="100">
+                <button type="button" onclick="StartGame()">Start Game</button>
+            </div>
+            <div id="game-menu">
+                <button type="button" onclick="StopGame()">End Game</button>
+            </div>
         </div>
         <div id="game-center">
             <div id="game-deck">
